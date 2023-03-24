@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StudentAdminPortal.API.Profiles.AfterMaps;
 
 namespace StudentAdminPortal.API.Profiles
 {
@@ -18,6 +19,8 @@ namespace StudentAdminPortal.API.Profiles
                 .ReverseMap();
             CreateMap<DataModels.Address, Address>()
                 .ReverseMap();
+            CreateMap<UpdateStudentRequest, DataModels.Student>()
+                .AfterMap<UpdarteStudentRequestAfterMap>();
         }
     }
 }
