@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using StudentAdminPortal.API.DataModels;
+using StudentAdminPortal.API.Profiles;
 using StudentAdminPortal.API.Repositories;
 using System;
 using System.Collections.Generic;
@@ -49,6 +51,13 @@ namespace StudentAdminPortal.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentAdminPortal.API", Version = "v1" });
             });
+            //var mappingConfig = new MapperConfiguration(mc =>
+            //{
+            //    mc.AddProfile(new AutoMapperProfiles());
+            //});
+
+            //IMapper mapper = mappingConfig.CreateMapper();
+            //services.AddSingleton(mapper);
             services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
